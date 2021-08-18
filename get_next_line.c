@@ -6,7 +6,7 @@
 /*   By: gdaouda <gdaouda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:39:49 by gdaouda           #+#    #+#             */
-/*   Updated: 2021/08/16 18:43:37 by gdaouda          ###   ########.fr       */
+/*   Updated: 2021/08/18 16:13:18 by gdaouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,13 @@ char	*ft_line(char *l)
 	if (rl == NULL)
 		return (NULL);
 	i = -1;
-	if (l[i + 1] == '\n')
-		rl[i + 1] = '\n';
-	else
+	while (l[++i])
 	{
-		while (l[++i])
+		rl[i] = l[i];
+		if (l[i] == '\n')
 		{
-			rl[i] = l[i];
-			if (l[i] == '\n')
-			{
-				rl[i + 1] = '\0';
-				break ;
-			}
+			rl[i + 1] = '\0';
+			break ;
 		}
 	}
 	return (rl);
